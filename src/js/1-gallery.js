@@ -1,4 +1,6 @@
 import SimpleLightbox from "simplelightbox";
+
+
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const images = [
@@ -80,8 +82,10 @@ const images = [
     </li>`
    });
 
+
    const galleryHTML = listItemsHTML.join(' ');
    gallery.insertAdjacentHTML('beforeend', galleryHTML);
+   
 
    const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',

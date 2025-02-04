@@ -1,13 +1,17 @@
 const STORAGE_KEY = "feedback-form-state";
 
+
 const formData = {
     email: "",
     message: "",
 }
 
+
 const refs = {
     form: document.querySelector('.feedback-form'),
 }
+
+
 
 refs.form.addEventListener('input', (e) => {
     formData.email = e.currentTarget.elements.email.value;
@@ -15,12 +19,16 @@ refs.form.addEventListener('input', (e) => {
     saveToLS(STORAGE_KEY, formData);
 });
 
+
+
 function initPage() {
     const dataForm = loadFromLS(STORAGE_KEY);
     refs.form.elements.email.value = dataForm?.email || "";
     refs.form.elements.message.value = dataForm?.message || "";
 }
 initPage();
+
+
 
 refs.form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -35,10 +43,14 @@ refs.form.addEventListener('submit', (e) => {
     localStorage.removeItem(STORAGE_KEY);
 });
 
+
+
 function saveToLS(key, value){
     const jsonData = JSON.stringify(value);
     localStorage.setItem(key, jsonData);
 }
+
+
 
 function loadFromLS(key) {
     const body = localStorage.getItem(key);
